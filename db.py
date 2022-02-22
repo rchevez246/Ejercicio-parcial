@@ -12,6 +12,8 @@ def createconnectionDB():
     )
     return connection
 
+
+
 ## Insert method
 def insertNewPerson(person):
     connection = createconnectionDB()

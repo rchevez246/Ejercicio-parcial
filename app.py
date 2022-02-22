@@ -5,8 +5,12 @@ from flask import Flask, render_template, redirect, url_for, request
 
 app = Flask(__name__)
 
-# route para insert
+@app.route("/")
+def home():
+    personList = selectAllPersons()
+    return render_template("home.html", persons=personList)
 
+# route para insert
 @app.route("/insertemail", methods=["GET", "POST"])
 def new_email():
     if request.method == "GET":
