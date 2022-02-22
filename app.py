@@ -1,7 +1,11 @@
+from db import insertNewPerson
+from Person import Person
 from flask import Flask, render_template, redirect, url_for, request
 
 
 app = Flask(__name__)
+
+# route para insert
 
 @app.route("/insertemail", methods=["GET", "POST"])
 def new_email():
@@ -10,9 +14,8 @@ def new_email():
     
     elif request.method == "POST":
         name = request.form.get("name")
-        age = request.form.get("age")
-        salary = request.form.get("salary")
-        person = Person(name, age, salary)
+        email = request.form.get("email")
+        person = Person(name, email)
         insertNewPerson(person)
         return redirect(url_for("home"))
     else:

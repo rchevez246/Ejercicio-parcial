@@ -1,3 +1,5 @@
+# DB
+
 import pymysql.cursors
 def createconnectionDB():
     connection = pymysql.connect(
